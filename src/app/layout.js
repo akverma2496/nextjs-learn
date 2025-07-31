@@ -17,10 +17,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <header style={{backgroundColor: "cyan", padding: "2%", textAlign: "center"}}>HEADER</header>
         {children}
+        <footer style={{backgroundColor: "cyan", padding: "2%", textAlign: "center"}}>FOOTER</footer>
       </body>
     </html>
   );
