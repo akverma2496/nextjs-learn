@@ -1,17 +1,25 @@
 import React from 'react'
 import Link from 'next/link'
 
-const page = () => {
+const page = async () => {
+
+  const response  = await fetch("http://localhost:3000/api/products")
+  const {products} = await response.json()
+
   return (
     <div>
         <main>
       <h1>Products Page</h1>
-      <p>This is a placeholder for the products listing.</p>
+      <br/>
       <ul>
-        {[1,2,3,4,5,6,7,8,9,10].map((id) => (
-          <li key={id}>
-            <Link href={`/products/${id}`}>Go to Product {id}</Link>
+        {products.map((product) => (
+          <>
+          <li key={product.id}>
+            <h3>{product.title}</h3>
+            <Link href={`/products/${product.id}`}>Go to Product {product.id}</Link>
           </li>
+          <hr/>
+          </>
         ))}
       </ul>
     </main>
