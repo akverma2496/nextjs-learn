@@ -13,13 +13,11 @@ const page = async () => {
       <br/>
       <ul>
         {products.map((product) => (
-          <>
           <li key={product.id}>
             <h3>{product.title}</h3>
             <Link href={`/products/${product.id}`}>Go to Product {product.id}</Link>
           </li>
-          <hr/>
-          </>
+          
         ))}
       </ul>
     </main>
